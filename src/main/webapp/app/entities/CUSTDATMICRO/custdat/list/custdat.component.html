@@ -1,0 +1,161 @@
+<div>
+  <h2 id="page-heading" data-cy="CustdatHeading">
+    <span jhiTranslate="mainMicroApp.custdatmicroCustdat.home.title">Custdats</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="reset()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="mainMicroApp.custdatmicroCustdat.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-custdat"
+        [routerLink]="['/custdat/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="mainMicroApp.custdatmicroCustdat.home.createLabel"> Create a new Custdat </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="custdats?.length === 0">
+    <span jhiTranslate="mainMicroApp.custdatmicroCustdat.home.notFound">No custdats found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="custdats && custdats.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="custdatId">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custdatId">Custdat Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custId">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custId">Cust Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custFirstName">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custFirstName">Cust First Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custMiddleName">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custMiddleName">Cust Middle Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custLastName">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custLastName">Cust Last Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custAddrLine1">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrLine1">Cust Addr Line 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custAddrLine2">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrLine2">Cust Addr Line 2</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custAddrLine3">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrLine3">Cust Addr Line 3</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custAddrStateCd">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrStateCd">Cust Addr State Cd</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custAddrCountryCd">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrCountryCd">Cust Addr Country Cd</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custAddrZip">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrZip">Cust Addr Zip</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custPhoneNum1">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custPhoneNum1">Cust Phone Num 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custPhoneNum2">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custPhoneNum2">Cust Phone Num 2</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custSsn">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custSsn">Cust Ssn</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custGovtIssuedId">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custGovtIssuedId">Cust Govt Issued Id</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custDobYyyyMmDd">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custDobYyyyMmDd">Cust Dob Yyyy Mm Dd</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custEftAccountId">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custEftAccountId">Cust Eft Account Id</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custPriCardHolderInd">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custPriCardHolderInd">Cust Pri Card Holder Ind</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="custFicoCreditScore">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.custFicoCreditScore">Cust Fico Credit Score</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="filler">
+            <span jhiTranslate="mainMicroApp.custdatmicroCustdat.filler">Filler</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+        <tr *ngFor="let custdat of custdats; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/custdat', custdat.id, 'view']">{{ custdat.id }}</a>
+          </td>
+          <td>{{ custdat.custdatId }}</td>
+          <td>{{ custdat.custId }}</td>
+          <td>{{ custdat.custFirstName }}</td>
+          <td>{{ custdat.custMiddleName }}</td>
+          <td>{{ custdat.custLastName }}</td>
+          <td>{{ custdat.custAddrLine1 }}</td>
+          <td>{{ custdat.custAddrLine2 }}</td>
+          <td>{{ custdat.custAddrLine3 }}</td>
+          <td>{{ custdat.custAddrStateCd }}</td>
+          <td>{{ custdat.custAddrCountryCd }}</td>
+          <td>{{ custdat.custAddrZip }}</td>
+          <td>{{ custdat.custPhoneNum1 }}</td>
+          <td>{{ custdat.custPhoneNum2 }}</td>
+          <td>{{ custdat.custSsn }}</td>
+          <td>{{ custdat.custGovtIssuedId }}</td>
+          <td>{{ custdat.custDobYyyyMmDd }}</td>
+          <td>{{ custdat.custEftAccountId }}</td>
+          <td>{{ custdat.custPriCardHolderInd }}</td>
+          <td>{{ custdat.custFicoCreditScore }}</td>
+          <td>{{ custdat.filler }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/custdat', custdat.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/custdat', custdat.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(custdat)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

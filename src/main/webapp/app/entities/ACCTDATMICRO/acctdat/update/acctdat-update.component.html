@@ -1,0 +1,420 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-acctdat-heading"
+        data-cy="AcctdatCreateUpdateHeading"
+        jhiTranslate="mainMicroApp.acctdatmicroAcctdat.home.createOrEditLabel"
+      >
+        Create or edit a Acctdat
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctdatId" for="field_acctdatId"
+            >Acctdat Id</label
+          >
+          <input type="number" class="form-control" name="acctdatId" id="field_acctdatId" data-cy="acctdatId" formControlName="acctdatId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctId" for="field_acctId">Acct Id</label>
+          <input type="number" class="form-control" name="acctId" id="field_acctId" data-cy="acctId" formControlName="acctId" />
+          <div *ngIf="editForm.get('acctId')!.invalid && (editForm.get('acctId')!.dirty || editForm.get('acctId')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('acctId')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctId')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 11 }"
+            >
+              This field cannot be more than 11.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('acctId')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctActiveStatus" for="field_acctActiveStatus"
+            >Acct Active Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="acctActiveStatus"
+            id="field_acctActiveStatus"
+            data-cy="acctActiveStatus"
+            formControlName="acctActiveStatus"
+          />
+          <div
+            *ngIf="
+              editForm.get('acctActiveStatus')!.invalid &&
+              (editForm.get('acctActiveStatus')!.dirty || editForm.get('acctActiveStatus')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctActiveStatus')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 1 }"
+            >
+              This field cannot be longer than 1 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCurrBal" for="field_acctCurrBal"
+            >Acct Curr Bal</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="acctCurrBal"
+            id="field_acctCurrBal"
+            data-cy="acctCurrBal"
+            formControlName="acctCurrBal"
+          />
+          <div *ngIf="editForm.get('acctCurrBal')!.invalid && (editForm.get('acctCurrBal')!.dirty || editForm.get('acctCurrBal')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctCurrBal')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 12 }"
+            >
+              This field cannot be more than 12.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('acctCurrBal')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCreditLimit" for="field_acctCreditLimit"
+            >Acct Credit Limit</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="acctCreditLimit"
+            id="field_acctCreditLimit"
+            data-cy="acctCreditLimit"
+            formControlName="acctCreditLimit"
+          />
+          <div
+            *ngIf="
+              editForm.get('acctCreditLimit')!.invalid &&
+              (editForm.get('acctCreditLimit')!.dirty || editForm.get('acctCreditLimit')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctCreditLimit')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 12 }"
+            >
+              This field cannot be more than 12.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('acctCreditLimit')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCashCreditLimit"
+            for="field_acctCashCreditLimit"
+            >Acct Cash Credit Limit</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="acctCashCreditLimit"
+            id="field_acctCashCreditLimit"
+            data-cy="acctCashCreditLimit"
+            formControlName="acctCashCreditLimit"
+          />
+          <div
+            *ngIf="
+              editForm.get('acctCashCreditLimit')!.invalid &&
+              (editForm.get('acctCashCreditLimit')!.dirty || editForm.get('acctCashCreditLimit')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctCashCreditLimit')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 12 }"
+            >
+              This field cannot be more than 12.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('acctCashCreditLimit')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctOpenDate" for="field_acctOpenDate"
+            >Acct Open Date</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="acctOpenDate"
+            id="field_acctOpenDate"
+            data-cy="acctOpenDate"
+            formControlName="acctOpenDate"
+          />
+          <div
+            *ngIf="editForm.get('acctOpenDate')!.invalid && (editForm.get('acctOpenDate')!.dirty || editForm.get('acctOpenDate')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctOpenDate')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctExpiraionDate" for="field_acctExpiraionDate"
+            >Acct Expiraion Date</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="acctExpiraionDate"
+            id="field_acctExpiraionDate"
+            data-cy="acctExpiraionDate"
+            formControlName="acctExpiraionDate"
+          />
+          <div
+            *ngIf="
+              editForm.get('acctExpiraionDate')!.invalid &&
+              (editForm.get('acctExpiraionDate')!.dirty || editForm.get('acctExpiraionDate')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctExpiraionDate')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctReissueDate" for="field_acctReissueDate"
+            >Acct Reissue Date</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="acctReissueDate"
+            id="field_acctReissueDate"
+            data-cy="acctReissueDate"
+            formControlName="acctReissueDate"
+          />
+          <div
+            *ngIf="
+              editForm.get('acctReissueDate')!.invalid &&
+              (editForm.get('acctReissueDate')!.dirty || editForm.get('acctReissueDate')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctReissueDate')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCurrCycCredit" for="field_acctCurrCycCredit"
+            >Acct Curr Cyc Credit</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="acctCurrCycCredit"
+            id="field_acctCurrCycCredit"
+            data-cy="acctCurrCycCredit"
+            formControlName="acctCurrCycCredit"
+          />
+          <div
+            *ngIf="
+              editForm.get('acctCurrCycCredit')!.invalid &&
+              (editForm.get('acctCurrCycCredit')!.dirty || editForm.get('acctCurrCycCredit')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctCurrCycCredit')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 12 }"
+            >
+              This field cannot be more than 12.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('acctCurrCycCredit')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCurrCycDebit" for="field_acctCurrCycDebit"
+            >Acct Curr Cyc Debit</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="acctCurrCycDebit"
+            id="field_acctCurrCycDebit"
+            data-cy="acctCurrCycDebit"
+            formControlName="acctCurrCycDebit"
+          />
+          <div
+            *ngIf="
+              editForm.get('acctCurrCycDebit')!.invalid &&
+              (editForm.get('acctCurrCycDebit')!.dirty || editForm.get('acctCurrCycDebit')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctCurrCycDebit')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 12 }"
+            >
+              This field cannot be more than 12.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('acctCurrCycDebit')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctAddrZip" for="field_acctAddrZip"
+            >Acct Addr Zip</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="acctAddrZip"
+            id="field_acctAddrZip"
+            data-cy="acctAddrZip"
+            formControlName="acctAddrZip"
+          />
+          <div *ngIf="editForm.get('acctAddrZip')!.invalid && (editForm.get('acctAddrZip')!.dirty || editForm.get('acctAddrZip')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctAddrZip')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctGroupId" for="field_acctGroupId"
+            >Acct Group Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="acctGroupId"
+            id="field_acctGroupId"
+            data-cy="acctGroupId"
+            formControlName="acctGroupId"
+          />
+          <div *ngIf="editForm.get('acctGroupId')!.invalid && (editForm.get('acctGroupId')!.dirty || editForm.get('acctGroupId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('acctGroupId')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.acctdatmicroAcctdat.filler" for="field_filler">Filler</label>
+          <input type="text" class="form-control" name="filler" id="field_filler" data-cy="filler" formControlName="filler" />
+          <div *ngIf="editForm.get('filler')!.invalid && (editForm.get('filler')!.dirty || editForm.get('filler')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('filler')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 178 }"
+            >
+              This field cannot be longer than 178 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

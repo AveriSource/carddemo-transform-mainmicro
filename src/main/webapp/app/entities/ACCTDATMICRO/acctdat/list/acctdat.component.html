@@ -1,0 +1,136 @@
+<div>
+  <h2 id="page-heading" data-cy="AcctdatHeading">
+    <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.home.title">Acctdats</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="reset()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-acctdat"
+        [routerLink]="['/acctdat/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.home.createLabel"> Create a new Acctdat </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="acctdats?.length === 0">
+    <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.home.notFound">No acctdats found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="acctdats && acctdats.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="acctdatId">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctdatId">Acctdat Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctId">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctId">Acct Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctActiveStatus">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctActiveStatus">Acct Active Status</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctCurrBal">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCurrBal">Acct Curr Bal</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctCreditLimit">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCreditLimit">Acct Credit Limit</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctCashCreditLimit">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCashCreditLimit">Acct Cash Credit Limit</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctOpenDate">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctOpenDate">Acct Open Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctExpiraionDate">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctExpiraionDate">Acct Expiraion Date</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctReissueDate">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctReissueDate">Acct Reissue Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctCurrCycCredit">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCurrCycCredit">Acct Curr Cyc Credit</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctCurrCycDebit">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCurrCycDebit">Acct Curr Cyc Debit</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctAddrZip">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctAddrZip">Acct Addr Zip</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="acctGroupId">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctGroupId">Acct Group Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="filler">
+            <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.filler">Filler</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+        <tr *ngFor="let acctdat of acctdats; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/acctdat', acctdat.id, 'view']">{{ acctdat.id }}</a>
+          </td>
+          <td>{{ acctdat.acctdatId }}</td>
+          <td>{{ acctdat.acctId }}</td>
+          <td>{{ acctdat.acctActiveStatus }}</td>
+          <td>{{ acctdat.acctCurrBal }}</td>
+          <td>{{ acctdat.acctCreditLimit }}</td>
+          <td>{{ acctdat.acctCashCreditLimit }}</td>
+          <td>{{ acctdat.acctOpenDate }}</td>
+          <td>{{ acctdat.acctExpiraionDate }}</td>
+          <td>{{ acctdat.acctReissueDate }}</td>
+          <td>{{ acctdat.acctCurrCycCredit }}</td>
+          <td>{{ acctdat.acctCurrCycDebit }}</td>
+          <td>{{ acctdat.acctAddrZip }}</td>
+          <td>{{ acctdat.acctGroupId }}</td>
+          <td>{{ acctdat.filler }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/acctdat', acctdat.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/acctdat', acctdat.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(acctdat)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

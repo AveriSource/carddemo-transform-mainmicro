@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="acctdat">
+      <h2 data-cy="acctdatDetailsHeading"><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.detail.title">Acctdat</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ acctdat.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctdatId">Acctdat Id</span></dt>
+        <dd>
+          <span>{{ acctdat.acctdatId }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctId">Acct Id</span></dt>
+        <dd>
+          <span>{{ acctdat.acctId }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctActiveStatus">Acct Active Status</span></dt>
+        <dd>
+          <span>{{ acctdat.acctActiveStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCurrBal">Acct Curr Bal</span></dt>
+        <dd>
+          <span>{{ acctdat.acctCurrBal }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCreditLimit">Acct Credit Limit</span></dt>
+        <dd>
+          <span>{{ acctdat.acctCreditLimit }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCashCreditLimit">Acct Cash Credit Limit</span></dt>
+        <dd>
+          <span>{{ acctdat.acctCashCreditLimit }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctOpenDate">Acct Open Date</span></dt>
+        <dd>
+          <span>{{ acctdat.acctOpenDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctExpiraionDate">Acct Expiraion Date</span></dt>
+        <dd>
+          <span>{{ acctdat.acctExpiraionDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctReissueDate">Acct Reissue Date</span></dt>
+        <dd>
+          <span>{{ acctdat.acctReissueDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCurrCycCredit">Acct Curr Cyc Credit</span></dt>
+        <dd>
+          <span>{{ acctdat.acctCurrCycCredit }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctCurrCycDebit">Acct Curr Cyc Debit</span></dt>
+        <dd>
+          <span>{{ acctdat.acctCurrCycDebit }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctAddrZip">Acct Addr Zip</span></dt>
+        <dd>
+          <span>{{ acctdat.acctAddrZip }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.acctGroupId">Acct Group Id</span></dt>
+        <dd>
+          <span>{{ acctdat.acctGroupId }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.filler">Filler</span></dt>
+        <dd>
+          <span>{{ acctdat.filler }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/acctdat', acctdat.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

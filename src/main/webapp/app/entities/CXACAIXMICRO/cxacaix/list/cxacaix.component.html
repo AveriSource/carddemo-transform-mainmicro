@@ -1,0 +1,96 @@
+<div>
+  <h2 id="page-heading" data-cy="CxacaixHeading">
+    <span jhiTranslate="mainMicroApp.cxacaixmicroCxacaix.home.title">Cxacaixes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="reset()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="mainMicroApp.cxacaixmicroCxacaix.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-cxacaix"
+        [routerLink]="['/cxacaix/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="mainMicroApp.cxacaixmicroCxacaix.home.createLabel"> Create a new Cxacaix </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="cxacaixes?.length === 0">
+    <span jhiTranslate="mainMicroApp.cxacaixmicroCxacaix.home.notFound">No cxacaixes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="cxacaixes && cxacaixes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="cxacaixId">
+            <span jhiTranslate="mainMicroApp.cxacaixmicroCxacaix.cxacaixId">Cxacaix Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="xrefCardNum">
+            <span jhiTranslate="mainMicroApp.cxacaixmicroCxacaix.xrefCardNum">Xref Card Num</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="xrefCustId">
+            <span jhiTranslate="mainMicroApp.cxacaixmicroCxacaix.xrefCustId">Xref Cust Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="xrefAcctId">
+            <span jhiTranslate="mainMicroApp.cxacaixmicroCxacaix.xrefAcctId">Xref Acct Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="filler">
+            <span jhiTranslate="mainMicroApp.cxacaixmicroCxacaix.filler">Filler</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+        <tr *ngFor="let cxacaix of cxacaixes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/cxacaix', cxacaix.id, 'view']">{{ cxacaix.id }}</a>
+          </td>
+          <td>{{ cxacaix.cxacaixId }}</td>
+          <td>{{ cxacaix.xrefCardNum }}</td>
+          <td>{{ cxacaix.xrefCustId }}</td>
+          <td>{{ cxacaix.xrefAcctId }}</td>
+          <td>{{ cxacaix.filler }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/cxacaix', cxacaix.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/cxacaix', cxacaix.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(cxacaix)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

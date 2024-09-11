@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="custdat">
+      <h2 data-cy="custdatDetailsHeading"><span jhiTranslate="mainMicroApp.custdatmicroCustdat.detail.title">Custdat</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ custdat.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custdatId">Custdat Id</span></dt>
+        <dd>
+          <span>{{ custdat.custdatId }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custId">Cust Id</span></dt>
+        <dd>
+          <span>{{ custdat.custId }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custFirstName">Cust First Name</span></dt>
+        <dd>
+          <span>{{ custdat.custFirstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custMiddleName">Cust Middle Name</span></dt>
+        <dd>
+          <span>{{ custdat.custMiddleName }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custLastName">Cust Last Name</span></dt>
+        <dd>
+          <span>{{ custdat.custLastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrLine1">Cust Addr Line 1</span></dt>
+        <dd>
+          <span>{{ custdat.custAddrLine1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrLine2">Cust Addr Line 2</span></dt>
+        <dd>
+          <span>{{ custdat.custAddrLine2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrLine3">Cust Addr Line 3</span></dt>
+        <dd>
+          <span>{{ custdat.custAddrLine3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrStateCd">Cust Addr State Cd</span></dt>
+        <dd>
+          <span>{{ custdat.custAddrStateCd }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrCountryCd">Cust Addr Country Cd</span></dt>
+        <dd>
+          <span>{{ custdat.custAddrCountryCd }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrZip">Cust Addr Zip</span></dt>
+        <dd>
+          <span>{{ custdat.custAddrZip }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custPhoneNum1">Cust Phone Num 1</span></dt>
+        <dd>
+          <span>{{ custdat.custPhoneNum1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custPhoneNum2">Cust Phone Num 2</span></dt>
+        <dd>
+          <span>{{ custdat.custPhoneNum2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custSsn">Cust Ssn</span></dt>
+        <dd>
+          <span>{{ custdat.custSsn }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custGovtIssuedId">Cust Govt Issued Id</span></dt>
+        <dd>
+          <span>{{ custdat.custGovtIssuedId }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custDobYyyyMmDd">Cust Dob Yyyy Mm Dd</span></dt>
+        <dd>
+          <span>{{ custdat.custDobYyyyMmDd }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custEftAccountId">Cust Eft Account Id</span></dt>
+        <dd>
+          <span>{{ custdat.custEftAccountId }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custPriCardHolderInd">Cust Pri Card Holder Ind</span></dt>
+        <dd>
+          <span>{{ custdat.custPriCardHolderInd }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.custFicoCreditScore">Cust Fico Credit Score</span></dt>
+        <dd>
+          <span>{{ custdat.custFicoCreditScore }}</span>
+        </dd>
+        <dt><span jhiTranslate="mainMicroApp.custdatmicroCustdat.filler">Filler</span></dt>
+        <dd>
+          <span>{{ custdat.filler }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/custdat', custdat.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

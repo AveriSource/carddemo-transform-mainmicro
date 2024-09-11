@@ -1,0 +1,562 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-custdat-heading"
+        data-cy="CustdatCreateUpdateHeading"
+        jhiTranslate="mainMicroApp.custdatmicroCustdat.home.createOrEditLabel"
+      >
+        Create or edit a Custdat
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custdatId" for="field_custdatId"
+            >Custdat Id</label
+          >
+          <input type="number" class="form-control" name="custdatId" id="field_custdatId" data-cy="custdatId" formControlName="custdatId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custId" for="field_custId">Cust Id</label>
+          <input type="number" class="form-control" name="custId" id="field_custId" data-cy="custId" formControlName="custId" />
+          <div *ngIf="editForm.get('custId')!.invalid && (editForm.get('custId')!.dirty || editForm.get('custId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custId')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 9 }"
+            >
+              This field cannot be more than 9.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('custId')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custFirstName" for="field_custFirstName"
+            >Cust First Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custFirstName"
+            id="field_custFirstName"
+            data-cy="custFirstName"
+            formControlName="custFirstName"
+          />
+          <div
+            *ngIf="
+              editForm.get('custFirstName')!.invalid && (editForm.get('custFirstName')!.dirty || editForm.get('custFirstName')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custFirstName')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              This field cannot be longer than 25 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custMiddleName" for="field_custMiddleName"
+            >Cust Middle Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custMiddleName"
+            id="field_custMiddleName"
+            data-cy="custMiddleName"
+            formControlName="custMiddleName"
+          />
+          <div
+            *ngIf="
+              editForm.get('custMiddleName')!.invalid && (editForm.get('custMiddleName')!.dirty || editForm.get('custMiddleName')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custMiddleName')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              This field cannot be longer than 25 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custLastName" for="field_custLastName"
+            >Cust Last Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custLastName"
+            id="field_custLastName"
+            data-cy="custLastName"
+            formControlName="custLastName"
+          />
+          <div
+            *ngIf="editForm.get('custLastName')!.invalid && (editForm.get('custLastName')!.dirty || editForm.get('custLastName')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custLastName')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              This field cannot be longer than 25 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrLine1" for="field_custAddrLine1"
+            >Cust Addr Line 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custAddrLine1"
+            id="field_custAddrLine1"
+            data-cy="custAddrLine1"
+            formControlName="custAddrLine1"
+          />
+          <div
+            *ngIf="
+              editForm.get('custAddrLine1')!.invalid && (editForm.get('custAddrLine1')!.dirty || editForm.get('custAddrLine1')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custAddrLine1')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrLine2" for="field_custAddrLine2"
+            >Cust Addr Line 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custAddrLine2"
+            id="field_custAddrLine2"
+            data-cy="custAddrLine2"
+            formControlName="custAddrLine2"
+          />
+          <div
+            *ngIf="
+              editForm.get('custAddrLine2')!.invalid && (editForm.get('custAddrLine2')!.dirty || editForm.get('custAddrLine2')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custAddrLine2')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrLine3" for="field_custAddrLine3"
+            >Cust Addr Line 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custAddrLine3"
+            id="field_custAddrLine3"
+            data-cy="custAddrLine3"
+            formControlName="custAddrLine3"
+          />
+          <div
+            *ngIf="
+              editForm.get('custAddrLine3')!.invalid && (editForm.get('custAddrLine3')!.dirty || editForm.get('custAddrLine3')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custAddrLine3')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrStateCd" for="field_custAddrStateCd"
+            >Cust Addr State Cd</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custAddrStateCd"
+            id="field_custAddrStateCd"
+            data-cy="custAddrStateCd"
+            formControlName="custAddrStateCd"
+          />
+          <div
+            *ngIf="
+              editForm.get('custAddrStateCd')!.invalid &&
+              (editForm.get('custAddrStateCd')!.dirty || editForm.get('custAddrStateCd')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custAddrStateCd')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 2 }"
+            >
+              This field cannot be longer than 2 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrCountryCd" for="field_custAddrCountryCd"
+            >Cust Addr Country Cd</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custAddrCountryCd"
+            id="field_custAddrCountryCd"
+            data-cy="custAddrCountryCd"
+            formControlName="custAddrCountryCd"
+          />
+          <div
+            *ngIf="
+              editForm.get('custAddrCountryCd')!.invalid &&
+              (editForm.get('custAddrCountryCd')!.dirty || editForm.get('custAddrCountryCd')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custAddrCountryCd')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 3 }"
+            >
+              This field cannot be longer than 3 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custAddrZip" for="field_custAddrZip"
+            >Cust Addr Zip</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custAddrZip"
+            id="field_custAddrZip"
+            data-cy="custAddrZip"
+            formControlName="custAddrZip"
+          />
+          <div *ngIf="editForm.get('custAddrZip')!.invalid && (editForm.get('custAddrZip')!.dirty || editForm.get('custAddrZip')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custAddrZip')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custPhoneNum1" for="field_custPhoneNum1"
+            >Cust Phone Num 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custPhoneNum1"
+            id="field_custPhoneNum1"
+            data-cy="custPhoneNum1"
+            formControlName="custPhoneNum1"
+          />
+          <div
+            *ngIf="
+              editForm.get('custPhoneNum1')!.invalid && (editForm.get('custPhoneNum1')!.dirty || editForm.get('custPhoneNum1')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custPhoneNum1')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custPhoneNum2" for="field_custPhoneNum2"
+            >Cust Phone Num 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custPhoneNum2"
+            id="field_custPhoneNum2"
+            data-cy="custPhoneNum2"
+            formControlName="custPhoneNum2"
+          />
+          <div
+            *ngIf="
+              editForm.get('custPhoneNum2')!.invalid && (editForm.get('custPhoneNum2')!.dirty || editForm.get('custPhoneNum2')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custPhoneNum2')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custSsn" for="field_custSsn">Cust Ssn</label>
+          <input type="number" class="form-control" name="custSsn" id="field_custSsn" data-cy="custSsn" formControlName="custSsn" />
+          <div *ngIf="editForm.get('custSsn')!.invalid && (editForm.get('custSsn')!.dirty || editForm.get('custSsn')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custSsn')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 9 }"
+            >
+              This field cannot be more than 9.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('custSsn')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custGovtIssuedId" for="field_custGovtIssuedId"
+            >Cust Govt Issued Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custGovtIssuedId"
+            id="field_custGovtIssuedId"
+            data-cy="custGovtIssuedId"
+            formControlName="custGovtIssuedId"
+          />
+          <div
+            *ngIf="
+              editForm.get('custGovtIssuedId')!.invalid &&
+              (editForm.get('custGovtIssuedId')!.dirty || editForm.get('custGovtIssuedId')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custGovtIssuedId')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custDobYyyyMmDd" for="field_custDobYyyyMmDd"
+            >Cust Dob Yyyy Mm Dd</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custDobYyyyMmDd"
+            id="field_custDobYyyyMmDd"
+            data-cy="custDobYyyyMmDd"
+            formControlName="custDobYyyyMmDd"
+          />
+          <div
+            *ngIf="
+              editForm.get('custDobYyyyMmDd')!.invalid &&
+              (editForm.get('custDobYyyyMmDd')!.dirty || editForm.get('custDobYyyyMmDd')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custDobYyyyMmDd')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.custEftAccountId" for="field_custEftAccountId"
+            >Cust Eft Account Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custEftAccountId"
+            id="field_custEftAccountId"
+            data-cy="custEftAccountId"
+            formControlName="custEftAccountId"
+          />
+          <div
+            *ngIf="
+              editForm.get('custEftAccountId')!.invalid &&
+              (editForm.get('custEftAccountId')!.dirty || editForm.get('custEftAccountId')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custEftAccountId')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              This field cannot be longer than 10 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="mainMicroApp.custdatmicroCustdat.custPriCardHolderInd"
+            for="field_custPriCardHolderInd"
+            >Cust Pri Card Holder Ind</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="custPriCardHolderInd"
+            id="field_custPriCardHolderInd"
+            data-cy="custPriCardHolderInd"
+            formControlName="custPriCardHolderInd"
+          />
+          <div
+            *ngIf="
+              editForm.get('custPriCardHolderInd')!.invalid &&
+              (editForm.get('custPriCardHolderInd')!.dirty || editForm.get('custPriCardHolderInd')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custPriCardHolderInd')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 1 }"
+            >
+              This field cannot be longer than 1 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="mainMicroApp.custdatmicroCustdat.custFicoCreditScore"
+            for="field_custFicoCreditScore"
+            >Cust Fico Credit Score</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="custFicoCreditScore"
+            id="field_custFicoCreditScore"
+            data-cy="custFicoCreditScore"
+            formControlName="custFicoCreditScore"
+          />
+          <div
+            *ngIf="
+              editForm.get('custFicoCreditScore')!.invalid &&
+              (editForm.get('custFicoCreditScore')!.dirty || editForm.get('custFicoCreditScore')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('custFicoCreditScore')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 3 }"
+            >
+              This field cannot be more than 3.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('custFicoCreditScore')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="mainMicroApp.custdatmicroCustdat.filler" for="field_filler">Filler</label>
+          <input type="text" class="form-control" name="filler" id="field_filler" data-cy="filler" formControlName="filler" />
+          <div *ngIf="editForm.get('filler')!.invalid && (editForm.get('filler')!.dirty || editForm.get('filler')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('filler')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 168 }"
+            >
+              This field cannot be longer than 168 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

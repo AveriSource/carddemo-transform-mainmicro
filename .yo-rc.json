@@ -1,0 +1,63 @@
+{
+  "generator-jhipster": {
+    "authenticationType": "jwt",
+    "clientFramework": "angularX",
+    "serverPort": "5000",
+    "serviceDiscoveryType": "eureka",
+    "skipUserManagement": false,
+    "withAdminUi": true,
+    "baseName": "MainMicro",
+    "buildTool": "maven",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": ["en"],
+    "messageBroker": false,
+    "prodDatabaseType": "mssql",
+    "searchEngine": false,
+    "skipClient": false,
+    "testFrameworks": ["cucumber"],
+    "websocket": false,
+    "applicationType": "gateway",
+    "packageName": "com.mycompany.maingtpkg",
+    "packageFolder": "com/mycompany/maingtpkg",
+    "jhipsterVersion": "7.1.0",
+    "skipServer": false,
+    "clientPackageManager": "npm",
+    "dtoSuffix": "DTO",
+    "entitySuffix": "",
+    "reactive": true,
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "applicationIndex": 0,
+    "applications": {
+      "ACCTDATMICRO": {
+        "serverPort": "5001",
+        "applicationIndex": 1
+      },
+      "CXACAIXMICRO": {
+        "serverPort": "5002",
+        "applicationIndex": 2
+      },
+      "CUSTDATMICRO": {
+        "serverPort": "5003",
+        "applicationIndex": 3
+      }
+    },
+    "skipCheckLengthOfIdentifier": false,
+    "skipFakeData": false,
+    "blueprints": [],
+    "otherModules": [],
+    "pages": [],
+    "nativeLanguage": "en",
+    "creationTimestamp": 1726063509108,
+    "jwtSecretKey": "ZWE0NTZkZjk0MDhmOTEyNDhkZGJlZDMyMDQ2ODM3YTE2Mzk4ZDMwZjg3NzNkNjY4MjM3MjUxNDY0YzMwZjA5MjgwMzA5Yjg0OTM4ZWQ5OGVjYTllNDM5MWQ3OGMyMjkxOWJkYTJkYTAxMTQ3NTk4NmY1YTAxZWQxYWQyZjJhNTI=",
+    "devServerPort": 4200,
+    "entities": ["Acctdat", "Custdat", "Cxacaix"],
+    "lastLiquibaseTimestamp": 1726063689000
+  }
+}

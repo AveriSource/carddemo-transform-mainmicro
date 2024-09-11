@@ -1,0 +1,101 @@
+{
+  "name": "Acctdat",
+  "fields": [
+    {
+      "fieldName": "acctdatId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "acctId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "max"],
+      "fieldValidateRulesMax": "11"
+    },
+    {
+      "fieldName": "acctActiveStatus",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1"
+    },
+    {
+      "fieldName": "acctCurrBal",
+      "fieldType": "Double",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "12"
+    },
+    {
+      "fieldName": "acctCreditLimit",
+      "fieldType": "Double",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "12"
+    },
+    {
+      "fieldName": "acctCashCreditLimit",
+      "fieldType": "Double",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "12"
+    },
+    {
+      "fieldName": "acctOpenDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "acctExpiraionDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "acctReissueDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "acctCurrCycCredit",
+      "fieldType": "Double",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "12"
+    },
+    {
+      "fieldName": "acctCurrCycDebit",
+      "fieldType": "Double",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "12"
+    },
+    {
+      "fieldName": "acctAddrZip",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "acctGroupId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "filler",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "178"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "acctdat",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["MainMicro", "ACCTDATMICRO"],
+  "microserviceName": "ACCTDATMICRO",
+  "clientRootFolder": "ACCTDATMICRO",
+  "databaseType": "sql",
+  "changelogDate": "20240911140609"
+}

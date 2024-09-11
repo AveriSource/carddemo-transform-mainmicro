@@ -1,0 +1,32 @@
+{
+  "mainMicroApp": {
+    "cxacaixmicroCxacaix": {
+      "home": {
+        "title": "Cxacaixes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Cxacaix",
+        "createOrEditLabel": "Create or edit a Cxacaix",
+        "notFound": "No Cxacaixes found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Cxacaix {{ id }}?"
+      },
+      "detail": {
+        "title": "Cxacaix"
+      },
+      "id": "ID",
+      "cxacaixId": "Cxacaix Id",
+      "xrefCardNum": "Xref Card Num",
+      "xrefCustId": "Xref Cust Id",
+      "xrefAcctId": "Xref Acct Id",
+      "filler": "Filler"
+    }
+  },
+  "cxacaixmicroApp": {
+    "cxacaixmicroCxacaix": {
+      "created": "A new Cxacaix is created with identifier {{ param }}",
+      "updated": "A Cxacaix is updated with identifier {{ param }}",
+      "deleted": "A Cxacaix is deleted with identifier {{ param }}"
+    }
+  }
+}

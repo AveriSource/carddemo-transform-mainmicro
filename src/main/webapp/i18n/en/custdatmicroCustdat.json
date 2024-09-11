@@ -1,0 +1,47 @@
+{
+  "mainMicroApp": {
+    "custdatmicroCustdat": {
+      "home": {
+        "title": "Custdats",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Custdat",
+        "createOrEditLabel": "Create or edit a Custdat",
+        "notFound": "No Custdats found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Custdat {{ id }}?"
+      },
+      "detail": {
+        "title": "Custdat"
+      },
+      "id": "ID",
+      "custdatId": "Custdat Id",
+      "custId": "Cust Id",
+      "custFirstName": "Cust First Name",
+      "custMiddleName": "Cust Middle Name",
+      "custLastName": "Cust Last Name",
+      "custAddrLine1": "Cust Addr Line 1",
+      "custAddrLine2": "Cust Addr Line 2",
+      "custAddrLine3": "Cust Addr Line 3",
+      "custAddrStateCd": "Cust Addr State Cd",
+      "custAddrCountryCd": "Cust Addr Country Cd",
+      "custAddrZip": "Cust Addr Zip",
+      "custPhoneNum1": "Cust Phone Num 1",
+      "custPhoneNum2": "Cust Phone Num 2",
+      "custSsn": "Cust Ssn",
+      "custGovtIssuedId": "Cust Govt Issued Id",
+      "custDobYyyyMmDd": "Cust Dob Yyyy Mm Dd",
+      "custEftAccountId": "Cust Eft Account Id",
+      "custPriCardHolderInd": "Cust Pri Card Holder Ind",
+      "custFicoCreditScore": "Cust Fico Credit Score",
+      "filler": "Filler"
+    }
+  },
+  "custdatmicroApp": {
+    "custdatmicroCustdat": {
+      "created": "A new Custdat is created with identifier {{ param }}",
+      "updated": "A Custdat is updated with identifier {{ param }}",
+      "deleted": "A Custdat is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "name": "Custdat",
+  "fields": [
+    {
+      "fieldName": "custdatId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "custId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "9"
+    },
+    {
+      "fieldName": "custFirstName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "custMiddleName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "custLastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "custAddrLine1",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "custAddrLine2",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "custAddrLine3",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "custAddrStateCd",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "2"
+    },
+    {
+      "fieldName": "custAddrCountryCd",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "3"
+    },
+    {
+      "fieldName": "custAddrZip",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "custPhoneNum1",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "15"
+    },
+    {
+      "fieldName": "custPhoneNum2",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "15"
+    },
+    {
+      "fieldName": "custSsn",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "9"
+    },
+    {
+      "fieldName": "custGovtIssuedId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "custDobYyyyMmDd",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "custEftAccountId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "custPriCardHolderInd",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1"
+    },
+    {
+      "fieldName": "custFicoCreditScore",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "3"
+    },
+    {
+      "fieldName": "filler",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "168"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "custdat",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["MainMicro", "CUSTDATMICRO"],
+  "microserviceName": "CUSTDATMICRO",
+  "clientRootFolder": "CUSTDATMICRO",
+  "databaseType": "sql",
+  "changelogDate": "20240911140709"
+}

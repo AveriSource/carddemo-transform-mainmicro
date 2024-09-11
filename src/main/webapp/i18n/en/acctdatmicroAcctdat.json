@@ -1,0 +1,41 @@
+{
+  "mainMicroApp": {
+    "acctdatmicroAcctdat": {
+      "home": {
+        "title": "Acctdats",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Acctdat",
+        "createOrEditLabel": "Create or edit a Acctdat",
+        "notFound": "No Acctdats found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Acctdat {{ id }}?"
+      },
+      "detail": {
+        "title": "Acctdat"
+      },
+      "id": "ID",
+      "acctdatId": "Acctdat Id",
+      "acctId": "Acct Id",
+      "acctActiveStatus": "Acct Active Status",
+      "acctCurrBal": "Acct Curr Bal",
+      "acctCreditLimit": "Acct Credit Limit",
+      "acctCashCreditLimit": "Acct Cash Credit Limit",
+      "acctOpenDate": "Acct Open Date",
+      "acctExpiraionDate": "Acct Expiraion Date",
+      "acctReissueDate": "Acct Reissue Date",
+      "acctCurrCycCredit": "Acct Curr Cyc Credit",
+      "acctCurrCycDebit": "Acct Curr Cyc Debit",
+      "acctAddrZip": "Acct Addr Zip",
+      "acctGroupId": "Acct Group Id",
+      "filler": "Filler"
+    }
+  },
+  "acctdatmicroApp": {
+    "acctdatmicroAcctdat": {
+      "created": "A new Acctdat is created with identifier {{ param }}",
+      "updated": "A Acctdat is updated with identifier {{ param }}",
+      "deleted": "A Acctdat is deleted with identifier {{ param }}"
+    }
+  }
+}
