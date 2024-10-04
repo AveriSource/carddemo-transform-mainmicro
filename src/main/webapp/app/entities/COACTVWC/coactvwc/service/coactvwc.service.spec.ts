@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { ICoactvwc } from '../coactvwc.model';
+import { ICoactvwc, Coactvwc } from '../coactvwc.model';
 
 import { CoactvwcService } from './coactvwc.service';
 import { IAcctdat } from 'app/entities/ACCTDATMICRO/acctdat/acctdat.model';
@@ -75,6 +75,87 @@ describe('Service Tests', () => {
         const req = httpMock.expectOne({ method: 'GET' });
         req.flush(returnedFromService);
         expect(expectedResult).toMatchObject(elemDefault);
+      });
+
+      it('should update a Coactvwc', () => {
+        const returnedFromService = Object.assign(
+          {
+            acctdat: {
+              id: 1,
+              coactvwcId: 1,
+              acctId: 1,
+              acctActiveStatus: 'BBBBBB',
+              acctCurrBal: 1,
+              acctCreditLimit: 1,
+              acctCashCreditLimit: 1,
+              acctOpenDate: 'BBBBBB',
+              acctExpiraionDate: 'BBBBBB',
+              acctReissueDate: 'BBBBBB',
+              acctCurrCycCredit: 1,
+              acctCurrCycDebit: 1,
+              acctAddrZip: 'BBBBBB',
+              acctGroupId: 'BBBBBB',
+              filler: 'BBBBBB',
+            },
+            custdat: {
+              id: 1,
+              custdatId: 1,
+              custId: 1,
+              custFirstName: 'BBBBBBB',
+              custMiddleName: 'BBBBBBB',
+              custLastName: 'BBBBBBB',
+              custAddrLine1: 'BBBBBBB',
+              custAddrLine2: 'BBBBBBB',
+              custAddrLine3: 'BBBBBBB',
+              custAddrStateCd: 'BBBBBBB',
+              custAddrCountryCd: 'BBBBBBB',
+              custAddrZip: 'BBBBBBB',
+              custPhoneNum1: 'BBBBBBB',
+              custPhoneNum2: 'BBBBBBB',
+              custSsn: 1,
+              custGovtIssuedId: 'BBBBBBB',
+              custDobYyyyMmDd: 'BBBBBBB',
+              custEftAccountId: 'BBBBBBB',
+              custPriCardHolderInd: 'BBBBBBB',
+              custFicoCreditScore: 1,
+              filler: 'BBBBBBB',
+            },
+          },
+          elemDefault
+        );
+
+        const expected = Object.assign({}, returnedFromService);
+
+        service.update(expected).subscribe(resp => (expectedResult = resp.body));
+
+        const req = httpMock.expectOne({ method: 'PUT' });
+        req.flush(returnedFromService);
+        expect(expectedResult).toMatchObject(expected);
+      });
+
+      it('should partial update a Coactvwc', () => {
+        const patchObject = Object.assign(
+          {
+            acctdat: {
+              acctdatId: 1,
+              acctCreditLimit: 1,
+              acctOpenDate: 'BBBBBB',
+              acctExpiraionDate: 'BBBBBB',
+              filler: 'BBBBBB',
+            },
+          },
+          new Coactvwc()
+        );
+
+        const returnedFromService = Object.assign(patchObject, elemDefault);
+
+        const expected = Object.assign({}, returnedFromService);
+
+        service.partialUpdate(patchObject).subscribe(resp => (expectedResult = resp.body));
+
+        const req = httpMock.expectOne({ method: 'PATCH' });
+        req.flush(returnedFromService);
+        expect(expectedResult).toMatchObject(expected);
       });
 
       it('should return a list of Acctdat', () => {
