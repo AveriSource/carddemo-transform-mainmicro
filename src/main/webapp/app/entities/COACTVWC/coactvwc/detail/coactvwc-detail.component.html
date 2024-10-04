@@ -8,9 +8,7 @@
       <jhi-alert-error></jhi-alert-error>
 
       <jhi-alert></jhi-alert>
-      <div
-        style="display: block; height: 100vh; width: 160vh; overflow: scroll; cursor: grab; color: rgb(0, 255, 0); background-color: #000"
-      >
+      <div style="display: block; height: 60vh; width: 100%; overflow: scroll; cursor: grab; color: rgb(0, 255, 0); background-color: #000">
         <div id="ScreenRendering" style="position: relative">
           <form tabindex="0" id="screenForm" class="focus-visible:border-2 border-blue-500">
             <label
@@ -194,7 +192,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >99999999999</label
+              >{{ coactvwc.acctdat!.acctId }}</label
             ><label
               id="lbl7"
               for="lbl7"
@@ -222,7 +220,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >X</label
+              >{{ coactvwc.acctdat!.acctActiveStatus }}</label
             ><label
               id="lbl8"
               for="lbl8"
@@ -250,7 +248,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXX</label
+              >{{ coactvwc.acctdat!.acctOpenDate }}</label
             ><label
               id="lbl9"
               for="lbl9"
@@ -278,7 +276,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >9999,999,999.99</label
+              >{{ coactvwc.acctdat!.acctCreditLimit }}</label
             ><label
               id="lbl10"
               for="lbl10"
@@ -306,7 +304,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXX</label
+              >{{ coactvwc.acctdat!.acctExpiraionDate }}</label
             ><label
               id="lbl11"
               for="lbl11"
@@ -334,7 +332,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >9999,999,999.99</label
+              >{{ coactvwc.acctdat!.acctCashCreditLimit }}</label
             ><label
               id="lbl12"
               for="lbl12"
@@ -362,7 +360,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXX</label
+              >{{ coactvwc.acctdat!.acctReissueDate }}</label
             ><label
               id="lbl13"
               for="lbl13"
@@ -390,7 +388,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >9999,999,999.99</label
+              >{{ coactvwc.acctdat!.acctCurrBal }}</label
             ><label
               id="lbl14"
               for="lbl14"
@@ -418,7 +416,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >9999,999,999.99</label
+              >{{ coactvwc.acctdat!.acctCurrCycCredit }}</label
             ><label
               id="lbl15"
               for="lbl15"
@@ -446,7 +444,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXX</label
+              >{{ coactvwc.acctdat!.acctGroupId }}</label
             ><label
               id="lbl16"
               for="lbl16"
@@ -474,7 +472,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >9999,999,999.99</label
+              >{{ coactvwc.acctdat!.acctCurrCycDebit }}</label
             ><label
               id="lbl17"
               for="lbl17"
@@ -516,7 +514,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXX</label
+              >{{ coactvwc.custdat!.custId }}</label
             ><label
               id="lbl19"
               for="lbl19"
@@ -544,7 +542,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custSsn }}</label
             ><label
               id="lbl20"
               for="lbl20"
@@ -572,7 +570,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custDobYyyyMmDd }}</label
             ><label
               id="lbl21"
               for="lbl21"
@@ -600,7 +598,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXX</label
+              >{{ coactvwc.custdat!.custFicoCreditScore }}</label
             ><label
               id="lbl22"
               for="lbl22"
@@ -656,7 +654,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXXXXXXXXXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custFirstName }}</label
             ><label
               id="lblAcsmnam"
               for="lblAcsmnam"
@@ -670,7 +668,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXXXXXXXXXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custMiddleName }}</label
             ><label
               id="lblAcslnam"
               for="lblAcslnam"
@@ -684,7 +682,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXXXXXXXXXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custLastName }}</label
             ><label
               id="lbl25"
               for="lbl25"
@@ -712,7 +710,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custAddrLine1 }}</label
             ><label
               id="lbl26"
               for="lbl26"
@@ -740,7 +738,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XX</label
+              >{{ coactvwc.custdat!.custAddrStateCd }}</label
             ><label
               id="lblAcsadl2"
               for="lblAcsadl2"
@@ -754,7 +752,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custAddrLine2 }}</label
             ><label
               id="lbl27"
               for="lbl27"
@@ -782,7 +780,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXX</label
+              >{{ coactvwc.custdat!.custAddrZip }}</label
             ><label
               id="lbl28"
               for="lbl28"
@@ -810,7 +808,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custAddrLine3 }}</label
             ><label
               id="lbl29"
               for="lbl29"
@@ -838,7 +836,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXX</label
+              >{{ coactvwc.custdat!.custAddrCountryCd }}</label
             ><label
               id="lbl30"
               for="lbl30"
@@ -866,7 +864,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custPhoneNum1 }}</label
             ><label
               id="lbl31"
               for="lbl31"
@@ -894,7 +892,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXXXXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custGovtIssuedId }}</label
             ><label
               id="lbl32"
               for="lbl32"
@@ -922,7 +920,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custPhoneNum2 }}</label
             ><label
               id="lbl33"
               for="lbl33"
@@ -950,7 +948,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >XXXXXXXXXX</label
+              >{{ coactvwc.custdat!.custEftAccountId }}</label
             ><label
               id="lbl34"
               for="lbl34"
@@ -978,7 +976,7 @@
                 white-space: nowrap;
                 position: absolute;
               "
-              >X</label
+              >{{ coactvwc.custdat!.custPriCardHolderInd }}</label
             ><label
               id="lblInfomsg"
               for="lblInfomsg"
