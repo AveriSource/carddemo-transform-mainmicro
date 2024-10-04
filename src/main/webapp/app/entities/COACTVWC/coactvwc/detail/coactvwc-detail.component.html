@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="coactvwc">
+      <h2 data-cy="coactvwcDetailsHeading"><span jhiTranslate="mainMicroApp.coactvwc.detail.title">Coactvwc</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <hr />
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+    </div>
+  </div>
+</div>

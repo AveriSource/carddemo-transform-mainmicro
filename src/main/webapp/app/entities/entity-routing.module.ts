@@ -19,6 +19,11 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'mainMicroApp.cxacaixmicroCxacaix.home.title' },
         loadChildren: () => import('./CXACAIXMICRO/cxacaix/cxacaix.module').then(m => m.CxacaixmicroCxacaixModule),
       },
+      {
+        path: 'coactvwc',
+        data: { pageTitle: 'mainMicroApp.coactvwc.home.title' },
+        loadChildren: () => import('./COACTVWC/coactvwc/coactvwc.module').then(m => m.CoactvwcModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

@@ -1,0 +1,22 @@
+{
+  "mainMicroApp": {
+    "coactvwc": {
+      "home": {
+        "title": "Coactvwcs",
+        "refreshListLabel": "Refresh list",
+        "editLabel": "Edit a Coactvwc",
+        "notFound": "No Coactvwcs found"
+      },
+      "detail": {
+        "title": "Coactvwc"
+      }
+    }
+  },
+  "coactvwcApp": {
+    "caoctvwc": {
+      "created": "A new Coactvwc is created with identifier {{ param }}",
+      "updated": "A Coactvwc is updated with identifier {{ param }}",
+      "deleted": "A Coactvwc is deleted with identifier {{ param }}"
+    }
+  }
+}
