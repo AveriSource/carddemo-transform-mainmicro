@@ -11,5 +11,5 @@ export class Coactvwc {
 }
 
 export function getCoactvwcIdentifier(coactvwc: ICoactvwc): number | undefined {
-  return coactvwc.acctdat!.id;
+  return coactvwc.acctdat!.acctId;
 }

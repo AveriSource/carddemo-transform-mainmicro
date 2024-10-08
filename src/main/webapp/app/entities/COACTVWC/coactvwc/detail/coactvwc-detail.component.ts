@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ICoactvwc } from '../coactvwc.model';
 
@@ -9,16 +9,22 @@ import { ICoactvwc } from '../coactvwc.model';
 })
 export class CoactvwcDetailComponent implements OnInit {
   coactvwc: ICoactvwc | null = null;
+  accountNumber: number | null = null;
 
-  constructor(protected activatedRoute: ActivatedRoute) {}
+  constructor(protected activatedRoute: ActivatedRoute, protected router: Router) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ coactvwc }) => {
       this.coactvwc = coactvwc;
+      this.accountNumber = coactvwc.acctdat.acctId;
     });
   }
 
   previousState(): void {
     window.history.back();
+  }
+
+  viewAccount(): void {
+    this.router.navigate(['/coactvwc', this.accountNumber, 'view']);
   }
 }

@@ -8,6 +8,7 @@
       <jhi-alert-error></jhi-alert-error>
 
       <jhi-alert></jhi-alert>
+
       <div style="display: block; height: 60vh; width: 100%; overflow: scroll; cursor: grab; color: rgb(0, 255, 0); background-color: #000">
         <div id="ScreenRendering" style="position: relative">
           <form tabindex="0" id="screenForm" class="focus-visible:border-2 border-blue-500">
@@ -167,7 +168,7 @@
               >View Account</label
             ><label
               id="lbl6"
-              for="lbl6"
+              for="txtAcctsid"
               class=""
               style="
                 left: 160px;
@@ -179,9 +180,9 @@
                 position: absolute;
               "
               >Account Number :</label
-            ><label
+            ><input
               id="txtAcctsid"
-              for="txtAcctsid"
+              type="text"
               class=""
               style="
                 left: 320px;
@@ -191,8 +192,16 @@
                 font-weight: 100;
                 white-space: nowrap;
                 position: absolute;
+                background-color: black;
+                color: #0f0;
+                border: none;
+                outline: none;
               "
-              >{{ coactvwc.acctdat!.acctId }}</label
+              (keyup.enter)="viewAccount()"
+              autofocus
+              [(ngModel)]="accountNumber"
+              name="accountNumber"
+            />
             ><label
               id="lbl7"
               for="lbl7"
@@ -1030,7 +1039,7 @@
         <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
       </button>
 
-      <button type="button" [routerLink]="['/coactvwc', coactvwc.acctdat!.id, 'edit']" class="btn btn-primary">
+      <button type="button" [routerLink]="['/coactvwc', coactvwc.acctdat!.acctId, 'edit']" class="btn btn-primary">
         <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
       </button>
     </div>
