@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'app/shared/shared.module';
-import { CoactvwcComponent } from './list/coactvwc.component';
+import { CoactvwcComponent } from './default/coactvwc.component';
 import { CoactvwcDetailComponent } from './detail/coactvwc-detail.component';
 import { CoactvwcUpdateComponent } from './update/coactvwc-update.component';
 import { CoactvwcRoutingModule } from './route/coactvwc-routing.module';

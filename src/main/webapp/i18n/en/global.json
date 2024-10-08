@@ -100,9 +100,11 @@
       "cancel": "Cancel",
       "delete": "Delete",
       "edit": "Edit",
+      "editaccount": "Edit Account",
       "open": "Open",
       "save": "Save",
-      "view": "View"
+      "view": "View",
+      "viewaccount": "View Account"
     },
     "detail": {
       "field": "Field",

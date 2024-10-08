@@ -1,0 +1,29 @@
+<div>
+  <h2 id="page-heading" data-cy="AcctdatHeading">
+    <span jhiTranslate="mainMicroApp.coactvwc.home.title">Coactvwcs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="reset()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="mainMicroApp.coactvwc.home.refreshListLabel">Refresh List</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="acctdats?.length === 0">
+    <span jhiTranslate="mainMicroApp.acctdatmicroAcctdat.home.notFound">No acctdats found</span>
+  </div>
+  <button type="submit" [routerLink]="['/coactvwc', 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+    <fa-icon icon="eye"></fa-icon>
+    <span class="d-none d-md-inline" jhiTranslate="entity.action.viewaccount">View Account</span>
+  </button>
+
+  <button type="submit" [routerLink]="['/coactvwc', 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+    <fa-icon icon="pencil-alt"></fa-icon>
+    <span class="d-none d-md-inline" jhiTranslate="entity.action.editaccount">Edit Account</span>
+  </button>
+</div>
